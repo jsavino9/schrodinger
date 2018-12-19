@@ -6,12 +6,6 @@ import math
 np.set_printoptions(suppress=True)
 tf.enable_eager_execution()
 
-def integrate(fx,x):
-    integral = 0
-    for i in range(len(x)-1):
-        integral += (x[i+1]-x[i])*(fx[i+1]+fx[i])/2
-    return integral
-
 def makearray(x,b):
     m = tf.Variable(tf.zeros((b,len(x))))
     for i in range(b):
