@@ -37,7 +37,7 @@ Navigate to the source directory at ../schrodinger
 
 Run the program by typing "python schrodinger/schrodinger.py".  If running through a python interpreter, just typing "schrodinger/schrodinger.py" will suffice.
 
-There are two files that are required to run the program.  The first is the potential energy file.  An example file can be found in the repository.  The first column holds the x values and the second holds the potential energies.  The number of entries in both must be equal.  The second is the parameters file.  The first entry is c, the scaling factor for the kinetic energy, and the second is b, the size of the basis set.  b must be an integer.
+There are two files that are required to run the program.  The first is the potential energy file.  An example file can be found in the repository.  The first column holds the x values and the second holds the potential energies.  The number of entries in both must be equal.  The second is the params file.  The first entry is c, the scaling factor for the kinetic energy, and the second is b, the size of the basis set.  b must be an integer.
 
 Note: The size of the basis set must be smaller than the number of entries in the potential energy file or the program will error out.  
 
