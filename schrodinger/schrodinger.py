@@ -122,7 +122,7 @@ def read_data():
 
 def main():
 	'''
-	Takes data from the potential energy file and runs the function
+	Finds the lowest energy and corresponding wave function.
 	'''
 	#Get data
 	x,v,c,b = read_data()
