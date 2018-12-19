@@ -95,17 +95,37 @@ def energies(h):
 	cfmin = cf[tf.argmin(e,0),:] #get cfmin from index of emin
 	return(emin,cfmin)
 
+def read_data():
+	'''
+	Read data files to get x, v, c, b
+	
+	inputs:
+	potential_energy.dat: This file contains two columns, where first contains x values and second contains v values
+	params.dat: This file has two single-item rows: first is c, second is b
+
+	returns:
+	x: the x values (array)
+	v: the v values (array0
+	c: scaling constant for kinetic energy (float)
+	b: size of basis set (int)
+	'''
+	#Load data files
+	vx = np.loadtxt("schrodinger/potential_energy.dat")
+	param = np.loadtxt("schrodinger/params.dat")
+	#x and v
+	x = vx[:,0]
+	v = vx[:,1]
+	#c and b
+	c = float(param[0])
+	b = int(param[1])
+	return x,v,c,b
+
 def main():
 	'''
 	Takes data from the potential energy file and runs the function
 	'''
-	#Get potential energy data
-	vx = np.loadtxt("potential_energy.dat")
-	x = vx[:,0]
-	v = vx[:,1]
-	#assign c and b
-	c = 0
-	b = 6
+	#Get data
+	x,v,c,b = read_data()
 	#find the v0hat coefficients
 	coeff = v0hat(x,v,b)
 	#find the hamiltonian

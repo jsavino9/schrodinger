@@ -8,7 +8,6 @@ import numpy as np
 import tensorflow as tf
 import math
 from schrodinger import schrodinger
-from schrodinger import cli
 tf.enable_eager_execution()
 
 
