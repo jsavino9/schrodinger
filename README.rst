@@ -1,5 +1,5 @@
 ===========
-schrodinger
+1D Schrodinger
 ===========
 
 
@@ -9,31 +9,52 @@ schrodinger
 .. image:: https://img.shields.io/travis/jsavino9/schrodinger.svg
         :target: https://travis-ci.org/jsavino9/schrodinger
 
-.. image:: https://readthedocs.org/projects/schrodinger/badge/?version=latest
-        :target: https://schrodinger.readthedocs.io/en/latest/?badge=latest
-        :alt: Documentation Status
-
-
-.. image:: https://pyup.io/repos/github/jsavino9/schrodinger/shield.svg
-     :target: https://pyup.io/repos/github/jsavino9/schrodinger/
-     :alt: Updates
+.. image:: https://coveralls.io/repos/github/jsavino9/schrodinger/badge.svg?branch=master
+:target: https://coveralls.io/github/jsavino9/schrodinger?branch=master
 
 
 
-Solves for lowest energy states and wavefunction using 1D Schrodinger
-
+This application takes in a list of data detailing potential energy as a function of x, the size of a basis set, and the scaling factor for kinetic energy and applies this to the 1D Schrodinger equation.  It reports the minimum energy of the system and the wavefunction corresponding to that lowest energy state.
 
 * Free software: MIT license
-* Documentation: https://schrodinger.readthedocs.io.
+=========================
+Installation Instructions
+=========================
 
+This program is intended to be run on Python 3.
 
-Features
---------
+Required packages: numpy, tensorflow
 
-* TODO
+*packages can be installed using "pip install [package]"*
+
+After downloading the required packages, go to the repository https://github.com/jsavino9/schrodinger.  Click clone/download, and click "download as zip".  Once the file is downloaded, it can be unzipped.  An alternative option is to clone the repository.
+
+===================
+Running the Program
+===================
+
+Navigate to the source directory at ../schrodinger
+
+Run the program by typing "python schrodinger/schrodinger.py".  If running through a python interpreter, just typing "schrodinger/schrodinger.py" will suffice.
+
+There are two files that are required to run the program.  The first is the potential energy file.  An example file can be found in the repository.  The first column holds the x values and the second holds the potential energies.  The number of entries in both must be equal.  The second is the parameters file.  The first entry is c, the scaling factor for the kinetic energy, and the second is b, the size of the basis set.  b must be an integer.
+
+Note: The size of the basis set must be smaller than the number of entries in the potential energy file or the program will error out.  
+
+To do: Fix the error issue.  Will likely just make all other entries equal to 0.
+
+Outputs
+-------
+
+emin: this is the minimum value of the energy for this system
+cfmin: these are the coefficients belonging to the wave function expressed in the desired basis set, such that a0 + a1*sin(x) + b1*cos(x) + a2*sin(2x) + ...
+
 
 Credits
 -------
+Author: James Savino
+
+Project was completed for CHE 477 at the University of Rochester under Professor Andrew White
 
 This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
 
