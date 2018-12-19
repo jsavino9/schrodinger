@@ -5,13 +5,24 @@ python:
   - 3.6
   - 3.5
   - 3.4
-  - 2.7
 
 # Command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
-install: pip install -U tox-travis
+install:
+- pip install coveralls
+- python setup.py install
+
+before_install:
+- pip install coverage
+- pip install tensorflow
+- sudo apt-get install -qq python-numpy
 
 # Command to run tests, e.g. python setup.py test
-script: tox
+script:
+- coverage run --source=langevin_project setup.py test
+- coverage report -m
+
+after_success: coveralls
+language: python
 
 # Assuming you have installed the travis-ci CLI tool, after you
 # create the Github repo and add it to Travis, run the
