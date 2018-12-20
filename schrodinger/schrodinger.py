@@ -75,7 +75,6 @@ def hamiltonian(x,c,coeff,b):
 	'''
 
 	m = makearray(x,b) #make the basis set array
-	print(m)
 	h = tf.Variable(tf.zeros((b,b), dtype=float)) #initialize h, which is a bxb matrix
 	#computes h: h = k + u, where k = c*del^2*psi(x) and u = v0(x)*psi(x)
 	for i in range(b):
@@ -104,8 +103,8 @@ def read_data():
 	Read data files to get x, v, c, b
 	
 	inputs:
-	f1: file name for potential_energy.dat: This file contains two columns, where first contains x values and second contains v values
-	f2 file name for params.dat: This file has two single-item rows: first is c, second is b
+	potential_energy.dat: This file contains two columns, where first contains x values and second contains v values
+	params.dat: This file has two single-item rows: first is c, second is b
 
 	returns:
 	x: the x values (array)
@@ -132,14 +131,13 @@ def main():
 	x,v,c,b = read_data()
 	#find the v0hat coefficients
 	coeff = v0hat(x,v,b)
-	print(coeff)
 	#find the hamiltonian
 	h = hamiltonian(x,c,coeff,b)
 	#get emin and cfmin
 	emin,cfmin = energies(h)
 	#print results
 	print('Min energy is {}' .format(emin))
-	print('Coefficients for min energy wave function are {}' .format(cfmin))
+	print('Coefficients for corresponding wave function are {}' .format(cfmin))
 
 main()
 
