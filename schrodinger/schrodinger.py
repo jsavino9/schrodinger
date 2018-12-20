@@ -3,8 +3,8 @@
 import tensorflow as tf
 import numpy as np
 import math
-np.set_printoptions(suppress=True)
-tf.enable_eager_execution()
+
+tf.enable_eager_execution() #runs without needing to use sess
 
 def makearray(x,b):
 	'''
@@ -18,6 +18,7 @@ def makearray(x,b):
 	returns:
 	m: the 2D array/matrix (2d array)
 	'''
+	#makes sure m is at least as big as bxb
 	if b > len(x):
 		m = tf.Variable(tf.zeros((b,b)))
 	else:
@@ -136,8 +137,8 @@ def main():
 	#get emin and cfmin
 	emin,cfmin = energies(h)
 	#print results
-	print('Min energy is {}' .format(emin))
-	print('Coefficients for corresponding wave function are {}' .format(cfmin))
+	print('The minimum energy is {}' .format(emin))
+	print('The coefficients for corresponding wave function are {}' .format(cfmin))
 
 main()
 
