@@ -39,14 +39,13 @@ Run the program by typing "python schrodinger/schrodinger.py".  If running throu
 
 There are two files that are required to run the program.  The first is the potential energy file.  An example file can be found in the repository.  The first column holds the x values and the second holds the potential energies.  The number of entries in both must be equal.  The second is the params file.  The first entry is c, the scaling factor for the kinetic energy, and the second is b, the size of the basis set.  b must be an integer.
 
-Note: The size of the basis set must be smaller than the number of entries in the potential energy file or the program will error out.  
-
-To do: Fix the error issue.  Will likely just make all other entries equal to 0.
+Note: The if the size of the basis set contains more values than the domain/potential energy, then it may result in unpredictable behavior. 
 
 Outputs
 -------
 
 emin: this is the minimum value of the energy for this system
+
 cfmin: these are the coefficients belonging to the wave function expressed in the desired basis set, such that a0 + a1*sin(x) + b1*cos(x) + a2*sin(2x) + ...
 
 

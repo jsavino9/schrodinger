@@ -22,12 +22,13 @@ def test_makearray():
 	Tests the makearray function
 	'''
 	x = [0,math.pi/2,math.pi] #set x
-	b = 3 #set b
+	b = 4 #set b
 	m = schrodinger.makearray(x,b) #set m
 	#test against known values
 	assert int(m[0][0]) == int(math.cos(0))
 	assert int(m[1][0]) == int(math.sin(0))
 	assert int(m[1][1]) == int(math.sin(math.pi/2))
+	assert int(m[0][3]) == int(0)
 
 def test_coeffs():
 	'''
@@ -79,7 +80,6 @@ def test_fileopen():
 	'''
 	#Open files
 	x,v,c,b = schrodinger.read_data()
-	assert(int(b)) == 3
-	assert float(x[0]) == float(0)
-	assert float(x[1]) == float(1.57079)
-	assert float(v[1]) == float(6)
+	assert type(b) == int #makes sure b is int
+	assert type(c) == float #makes sure c is float
+	assert len(x) == len(v) #makes sure the number of entries in potential energy equals domain
